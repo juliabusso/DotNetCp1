@@ -6,14 +6,16 @@ namespace ClassLibrary1
     {
         public string Cargo { get; set; }
 
+        // Polimorfismo 
         public override void ExibirInfo()
         {
-            Console.WriteLine($"Funcionário: {Nome}, Cargo: {Cargo}");
+            Console.WriteLine($"[FUNCIONÁRIO] Nome: {Nome}, Cargo: {Cargo}");
         }
 
-        public override void MetodoFinal()
+        // ninguém além do funcionario pode sobrescrever
+        public sealed override void MetodoFinal()
         {
-            Console.WriteLine("Método final sobrescrito em Funcionario.");
+            Console.WriteLine("[Funcionario] Método final (sealed) executado.");
         }
     }
 }

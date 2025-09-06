@@ -1,31 +1,43 @@
-﻿using ClassLibrary1;
+﻿using System;
+using System.Collections.Generic;
+using ClassLibrary1; // Referência à biblioteca
 
-class Program
+namespace ConsoleApp
 {
-    static void Main()
+    class Program
     {
-        Pessoa funcionario = new Funcionario
+        static void Main(string[] args)
         {
-            Nome = "Julia",
-            Cargo = "Analista"
-        };
+            
+            var funcionario = new Funcionario
+            {
+                Nome = "Julia",
+                Cargo = "Analista"
+            };
 
-        Pessoa cliente = new Cliente
-        {
-            Nome = "Cesar",
-            Empresa = "Desenvolvedor"
-        };
+            
+            var cliente = new Cliente
+            {
+                Nome = "Cesar",
+                Empresa = "Produtora"
+            };
 
-        funcionario.ExibirInfo();
-        cliente.ExibirInfo();
+            // Chamando métodos individuais
+            funcionario.ExibirInfo();
+            cliente.ExibirInfo();
 
-        funcionario.MetodoFinal();
-        cliente.MetodoFinal();
+            funcionario.MetodoFinal();
+            cliente.MetodoFinal();
 
-        List<Pessoa> pessoas = new List<Pessoa> { funcionario, cliente };
-        foreach (var p in pessoas)
-        {
-            p.ExibirInfo();
+            // Lista de polimorfismo
+            List<Pessoa> pessoas = new List<Pessoa> { funcionario, cliente };
+            Console.WriteLine("\n=== Lista de Pessoas ===");
+            foreach (var p in pessoas)
+            {
+                p.ExibirInfo();
+            }
+
+            Console.ReadLine();
         }
     }
 }
